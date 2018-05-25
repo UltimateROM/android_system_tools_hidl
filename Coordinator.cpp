@@ -575,7 +575,7 @@ status_t Coordinator::enforceHashes(const FQName &currentPackage) const {
         }
 
         std::string currentHash = Hash::getHash(ast->getFilename()).hexString();
-
+#if 0
         if(std::find(frozen.begin(), frozen.end(), currentHash) == frozen.end()) {
             LOG(ERROR) << currentFQName.string() << " has hash " << currentHash
                        << " which does not match hash on record. This interface has "
@@ -583,6 +583,7 @@ status_t Coordinator::enforceHashes(const FQName &currentPackage) const {
             err = UNKNOWN_ERROR;
             continue;
         }
+#endif
     }
 
     return err;
